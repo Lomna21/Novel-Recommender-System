@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+</head>
+<body>
+    <h1>Book Recommendation System</h1>
+    <form method="POST">
+        <label for="book_name">Enter a book name:</label>
+        <input type="text" id="book_name" name="book_name" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommended Books:</h2>
+        <ul>
+            {% for book in recommendations %}
+                <li>
+                    <h3>{{ book[0] }}</h3>
+                    <p>Author: {{ book[1] }}</p>
+                    <img src="{{ book[2] }}" alt="Book cover">
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
